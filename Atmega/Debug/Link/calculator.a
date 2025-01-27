@@ -161,7 +161,7 @@
 ;PCODE: $00000058 VOL: 0
 ;PCODE: $00000059 VOL: 0
 ; 0000 0037     {
-; 0000 0038         if (pressedKey == 'C') {num1 = 0; num2 = 0; result = 0; lcd_clear(); showHistoryState = 0;}
+; 0000 0038         if (pressedKey == 'C') {num1 = 0; num2 = 0; result = 0; lcd_clear(); showHistoryState = 0; num1 = 0; num2 = 0; s ...
 ;PCODE: $0000005A VOL: 0
 ;PCODE: $0000005B VOL: 0
 ;PCODE: $0000005C VOL: 0
@@ -171,85 +171,85 @@
 ;PCODE: $00000060 VOL: 0
 ;PCODE: $00000061 VOL: 0
 ;PCODE: $00000062 VOL: 0
-; 0000 0039         else if(pressedKey == '/'){
 ;PCODE: $00000063 VOL: 0
 ;PCODE: $00000064 VOL: 0
 ;PCODE: $00000065 VOL: 0
+; 0000 0039         else if(pressedKey == '/'){
 ;PCODE: $00000066 VOL: 0
 ;PCODE: $00000067 VOL: 0
-; 0000 003A             int historyCount = eeprom_read_byte(0);
-; 0000 003B             if (historyCount != 0){
 ;PCODE: $00000068 VOL: 0
-;	historyCount -> Y+0
 ;PCODE: $00000069 VOL: 0
 ;PCODE: $0000006A VOL: 0
+; 0000 003A             int historyCount = eeprom_read_byte(0);
+; 0000 003B             if (historyCount != 0){
 ;PCODE: $0000006B VOL: 0
+;	historyCount -> Y+0
 ;PCODE: $0000006C VOL: 0
 ;PCODE: $0000006D VOL: 0
 ;PCODE: $0000006E VOL: 0
 ;PCODE: $0000006F VOL: 0
-; 0000 003C                 shown = 0;
 ;PCODE: $00000070 VOL: 0
 ;PCODE: $00000071 VOL: 0
-; 0000 003D                 showHistoryState = 1;
 ;PCODE: $00000072 VOL: 0
+; 0000 003C                 shown = 0;
 ;PCODE: $00000073 VOL: 0
-; 0000 003E                 lcd_clear();
 ;PCODE: $00000074 VOL: 0
-; 0000 003F                 lcd_puts("* = next page");
+; 0000 003D                 showHistoryState = 1;
 ;PCODE: $00000075 VOL: 0
 ;PCODE: $00000076 VOL: 0
+; 0000 003E                 lcd_clear();
 ;PCODE: $00000077 VOL: 0
-; 0000 0040             }
-; 0000 0041             else{
+; 0000 003F                 lcd_puts("* = next page");
 ;PCODE: $00000078 VOL: 0
 ;PCODE: $00000079 VOL: 0
-; 0000 0042                 lcd_clear();
 ;PCODE: $0000007A VOL: 0
-; 0000 0043                 lcd_puts("No history");
+; 0000 0040             }
+; 0000 0041             else{
 ;PCODE: $0000007B VOL: 0
 ;PCODE: $0000007C VOL: 0
+; 0000 0042                 lcd_clear();
 ;PCODE: $0000007D VOL: 0
-; 0000 0044             }
+; 0000 0043                 lcd_puts("No history");
 ;PCODE: $0000007E VOL: 0
-; 0000 0045         }
 ;PCODE: $0000007F VOL: 0
-; 0000 0046         else if(pressedKey == '*'){
 ;PCODE: $00000080 VOL: 0
+; 0000 0044             }
 ;PCODE: $00000081 VOL: 0
+; 0000 0045         }
 ;PCODE: $00000082 VOL: 0
+; 0000 0046         else if(pressedKey == '*'){
 ;PCODE: $00000083 VOL: 0
 ;PCODE: $00000084 VOL: 0
-; 0000 0047             if(showHistoryState == 1){
 ;PCODE: $00000085 VOL: 0
 ;PCODE: $00000086 VOL: 0
 ;PCODE: $00000087 VOL: 0
-; 0000 0048                 int historyCount = eeprom_read_byte(0);
-; 0000 0049                 if(shown < historyCount){
+; 0000 0047             if(showHistoryState == 1){
 ;PCODE: $00000088 VOL: 0
-;	historyCount -> Y+0
 ;PCODE: $00000089 VOL: 0
 ;PCODE: $0000008A VOL: 0
+; 0000 0048                 int historyCount = eeprom_read_byte(0);
+; 0000 0049                 if(shown < historyCount){
 ;PCODE: $0000008B VOL: 0
+;	historyCount -> Y+0
 ;PCODE: $0000008C VOL: 0
 ;PCODE: $0000008D VOL: 0
 ;PCODE: $0000008E VOL: 0
 ;PCODE: $0000008F VOL: 0
 ;PCODE: $00000090 VOL: 0
+;PCODE: $00000091 VOL: 0
+;PCODE: $00000092 VOL: 0
+;PCODE: $00000093 VOL: 0
 ; 0000 004A                     int h_num1 = eeprom_read_byte(shown * 4 + 1);
 ; 0000 004B                     char h_op = eeprom_read_byte(shown * 4 + 2);
 ; 0000 004C                     int h_num2 = eeprom_read_byte(shown * 4 + 3);
 ; 0000 004D                     int h_res = eeprom_read_byte(shown * 4 + 4);
 ; 0000 004E                     shown += 1;
-;PCODE: $00000091 VOL: 0
+;PCODE: $00000094 VOL: 0
 ;	historyCount -> Y+7
 ;	h_num1 -> Y+5
 ;	h_op -> Y+4
 ;	h_num2 -> Y+2
 ;	h_res -> Y+0
-;PCODE: $00000092 VOL: 0
-;PCODE: $00000093 VOL: 0
-;PCODE: $00000094 VOL: 0
 ;PCODE: $00000095 VOL: 0
 ;PCODE: $00000096 VOL: 0
 ;PCODE: $00000097 VOL: 0
@@ -277,12 +277,12 @@
 ;PCODE: $000000AD VOL: 0
 ;PCODE: $000000AE VOL: 0
 ;PCODE: $000000AF VOL: 0
-; 0000 004F                     lcd_clear();
 ;PCODE: $000000B0 VOL: 0
-; 0000 0050                     sprintf(Buf,"%d",h_num1); lcd_puts(Buf);
 ;PCODE: $000000B1 VOL: 0
 ;PCODE: $000000B2 VOL: 0
+; 0000 004F                     lcd_clear();
 ;PCODE: $000000B3 VOL: 0
+; 0000 0050                     sprintf(Buf,"%d",h_num1); lcd_puts(Buf);
 ;PCODE: $000000B4 VOL: 0
 ;PCODE: $000000B5 VOL: 0
 ;PCODE: $000000B6 VOL: 0
@@ -294,10 +294,10 @@
 ;PCODE: $000000BC VOL: 0
 ;PCODE: $000000BD VOL: 0
 ;PCODE: $000000BE VOL: 0
-; 0000 0051                     sprintf(Buf,"%c",h_op); lcd_puts(Buf);
 ;PCODE: $000000BF VOL: 0
 ;PCODE: $000000C0 VOL: 0
 ;PCODE: $000000C1 VOL: 0
+; 0000 0051                     sprintf(Buf,"%c",h_op); lcd_puts(Buf);
 ;PCODE: $000000C2 VOL: 0
 ;PCODE: $000000C3 VOL: 0
 ;PCODE: $000000C4 VOL: 0
@@ -309,10 +309,10 @@
 ;PCODE: $000000CA VOL: 0
 ;PCODE: $000000CB VOL: 0
 ;PCODE: $000000CC VOL: 0
-; 0000 0052                     sprintf(Buf,"%d",h_num2); lcd_puts(Buf);
 ;PCODE: $000000CD VOL: 0
 ;PCODE: $000000CE VOL: 0
 ;PCODE: $000000CF VOL: 0
+; 0000 0052                     sprintf(Buf,"%d",h_num2); lcd_puts(Buf);
 ;PCODE: $000000D0 VOL: 0
 ;PCODE: $000000D1 VOL: 0
 ;PCODE: $000000D2 VOL: 0
@@ -324,10 +324,10 @@
 ;PCODE: $000000D8 VOL: 0
 ;PCODE: $000000D9 VOL: 0
 ;PCODE: $000000DA VOL: 0
-; 0000 0053                     sprintf(Buf,"%c",'='); lcd_puts(Buf);
 ;PCODE: $000000DB VOL: 0
 ;PCODE: $000000DC VOL: 0
 ;PCODE: $000000DD VOL: 0
+; 0000 0053                     sprintf(Buf,"%c",'='); lcd_puts(Buf);
 ;PCODE: $000000DE VOL: 0
 ;PCODE: $000000DF VOL: 0
 ;PCODE: $000000E0 VOL: 0
@@ -338,10 +338,10 @@
 ;PCODE: $000000E5 VOL: 0
 ;PCODE: $000000E6 VOL: 0
 ;PCODE: $000000E7 VOL: 0
-; 0000 0054                     sprintf(Buf,"%d",h_res); lcd_puts(Buf);
 ;PCODE: $000000E8 VOL: 0
 ;PCODE: $000000E9 VOL: 0
 ;PCODE: $000000EA VOL: 0
+; 0000 0054                     sprintf(Buf,"%d",h_res); lcd_puts(Buf);
 ;PCODE: $000000EB VOL: 0
 ;PCODE: $000000EC VOL: 0
 ;PCODE: $000000ED VOL: 0
@@ -353,23 +353,23 @@
 ;PCODE: $000000F3 VOL: 0
 ;PCODE: $000000F4 VOL: 0
 ;PCODE: $000000F5 VOL: 0
-; 0000 0055                 }
 ;PCODE: $000000F6 VOL: 0
-; 0000 0056                 else { shown = 0; }
 ;PCODE: $000000F7 VOL: 0
 ;PCODE: $000000F8 VOL: 0
+; 0000 0055                 }
 ;PCODE: $000000F9 VOL: 0
+; 0000 0056                 else { shown = 0; }
 ;PCODE: $000000FA VOL: 0
 ;PCODE: $000000FB VOL: 0
-; 0000 0057             }
 ;PCODE: $000000FC VOL: 0
+;PCODE: $000000FD VOL: 0
+;PCODE: $000000FE VOL: 0
+; 0000 0057             }
+;PCODE: $000000FF VOL: 0
 ; 0000 0058 
 ; 0000 0059         }
-;PCODE: $000000FD VOL: 0
-; 0000 005A         else if((pressedKey == '+' | pressedKey == '-') & showHistoryState == 0) { operand = pressedKey; state = 1; lcd_ ...
-;PCODE: $000000FE VOL: 0
-;PCODE: $000000FF VOL: 0
 ;PCODE: $00000100 VOL: 0
+; 0000 005A         else if((pressedKey == '+' | pressedKey == '-') & showHistoryState == 0) { operand = pressedKey; state = 1; lcd_ ...
 ;PCODE: $00000101 VOL: 0
 ;PCODE: $00000102 VOL: 0
 ;PCODE: $00000103 VOL: 0
@@ -389,11 +389,11 @@
 ;PCODE: $00000111 VOL: 0
 ;PCODE: $00000112 VOL: 0
 ;PCODE: $00000113 VOL: 0
-; 0000 005B 
-; 0000 005C         else if(pressedKey == '=' & showHistoryState == 0) {
 ;PCODE: $00000114 VOL: 0
 ;PCODE: $00000115 VOL: 0
 ;PCODE: $00000116 VOL: 0
+; 0000 005B 
+; 0000 005C         else if(pressedKey == '=' & showHistoryState == 0) {
 ;PCODE: $00000117 VOL: 0
 ;PCODE: $00000118 VOL: 0
 ;PCODE: $00000119 VOL: 0
@@ -402,26 +402,27 @@
 ;PCODE: $0000011C VOL: 0
 ;PCODE: $0000011D VOL: 0
 ;PCODE: $0000011E VOL: 0
-; 0000 005D             int historyCount = eeprom_read_byte(0);
-; 0000 005E             state = 0;
 ;PCODE: $0000011F VOL: 0
-;	historyCount -> Y+0
 ;PCODE: $00000120 VOL: 0
 ;PCODE: $00000121 VOL: 0
+; 0000 005D             int historyCount = eeprom_read_byte(0);
+; 0000 005E             if(historyCount == 10){
 ;PCODE: $00000122 VOL: 0
+;	historyCount -> Y+0
 ;PCODE: $00000123 VOL: 0
 ;PCODE: $00000124 VOL: 0
-; 0000 005F             lcd_putchar(pressedKey);
 ;PCODE: $00000125 VOL: 0
 ;PCODE: $00000126 VOL: 0
-; 0000 0060             if(operand == '+') { result = num1 + num2; }
 ;PCODE: $00000127 VOL: 0
 ;PCODE: $00000128 VOL: 0
 ;PCODE: $00000129 VOL: 0
+; 0000 005F                 int j;
+; 0000 0060                 for(j = 0; j < 9; j++){
 ;PCODE: $0000012A VOL: 0
+;	historyCount -> Y+2
+;	j -> Y+0
 ;PCODE: $0000012B VOL: 0
 ;PCODE: $0000012C VOL: 0
-; 0000 0061             else if(operand == '-') { result = num1 - num2; }
 ;PCODE: $0000012D VOL: 0
 ;PCODE: $0000012E VOL: 0
 ;PCODE: $0000012F VOL: 0
@@ -430,8 +431,18 @@
 ;PCODE: $00000132 VOL: 0
 ;PCODE: $00000133 VOL: 0
 ;PCODE: $00000134 VOL: 0
-; 0000 0062             sprintf(Buf,"%d",result); lcd_puts(Buf);
+; 0000 0061                     int oh_num1 = eeprom_read_byte((j+1)*4+1);
+; 0000 0062                     int oh_opr1 = eeprom_read_byte((j+1)*4+2);
+; 0000 0063                     int oh_num2 = eeprom_read_byte((j+1)*4+3);
+; 0000 0064                     int oh_res1 = eeprom_read_byte((j+1)*4+4);
+; 0000 0065                     delay_ms(10);
 ;PCODE: $00000135 VOL: 0
+;	historyCount -> Y+10
+;	j -> Y+8
+;	oh_num1 -> Y+6
+;	oh_opr1 -> Y+4
+;	oh_num2 -> Y+2
+;	oh_res1 -> Y+0
 ;PCODE: $00000136 VOL: 0
 ;PCODE: $00000137 VOL: 0
 ;PCODE: $00000138 VOL: 0
@@ -447,71 +458,63 @@
 ;PCODE: $00000142 VOL: 0
 ;PCODE: $00000143 VOL: 0
 ;PCODE: $00000144 VOL: 0
-; 0000 0063 
-; 0000 0064             eeprom_write_byte(historyCount * 4 + 1, num1);
 ;PCODE: $00000145 VOL: 0
 ;PCODE: $00000146 VOL: 0
 ;PCODE: $00000147 VOL: 0
 ;PCODE: $00000148 VOL: 0
 ;PCODE: $00000149 VOL: 0
 ;PCODE: $0000014A VOL: 0
-; 0000 0065             eeprom_write_byte(historyCount * 4 + 2, operand);
 ;PCODE: $0000014B VOL: 0
 ;PCODE: $0000014C VOL: 0
 ;PCODE: $0000014D VOL: 0
 ;PCODE: $0000014E VOL: 0
 ;PCODE: $0000014F VOL: 0
 ;PCODE: $00000150 VOL: 0
-; 0000 0066             eeprom_write_byte(historyCount * 4 + 3, num2);
 ;PCODE: $00000151 VOL: 0
 ;PCODE: $00000152 VOL: 0
 ;PCODE: $00000153 VOL: 0
 ;PCODE: $00000154 VOL: 0
 ;PCODE: $00000155 VOL: 0
 ;PCODE: $00000156 VOL: 0
-; 0000 0067             eeprom_write_byte(historyCount * 4 + 4, result);
 ;PCODE: $00000157 VOL: 0
 ;PCODE: $00000158 VOL: 0
 ;PCODE: $00000159 VOL: 0
 ;PCODE: $0000015A VOL: 0
 ;PCODE: $0000015B VOL: 0
 ;PCODE: $0000015C VOL: 0
-; 0000 0068             eeprom_write_byte(0, (historyCount + 1));
+; 0000 0066                     eeprom_write_byte(j*4+1,oh_num1);
 ;PCODE: $0000015D VOL: 0
 ;PCODE: $0000015E VOL: 0
 ;PCODE: $0000015F VOL: 0
 ;PCODE: $00000160 VOL: 0
-; 0000 0069         }
 ;PCODE: $00000161 VOL: 0
-; 0000 006A         else if(showHistoryState == 1){
 ;PCODE: $00000162 VOL: 0
+; 0000 0067                     eeprom_write_byte(j*4+2,oh_opr1);
 ;PCODE: $00000163 VOL: 0
 ;PCODE: $00000164 VOL: 0
 ;PCODE: $00000165 VOL: 0
 ;PCODE: $00000166 VOL: 0
-; 0000 006B             lcd_clear();
 ;PCODE: $00000167 VOL: 0
-; 0000 006C             lcd_puts("* = next page");
 ;PCODE: $00000168 VOL: 0
+; 0000 0068                     eeprom_write_byte(j*4+3,oh_num2);
 ;PCODE: $00000169 VOL: 0
 ;PCODE: $0000016A VOL: 0
-; 0000 006D         }
-; 0000 006E         else{
 ;PCODE: $0000016B VOL: 0
 ;PCODE: $0000016C VOL: 0
-; 0000 006F             if(state == 0){ num1 = num1 * 10 + pressedKey - 48; }
 ;PCODE: $0000016D VOL: 0
 ;PCODE: $0000016E VOL: 0
+; 0000 0069                     eeprom_write_byte(j*4+4,oh_res1);
 ;PCODE: $0000016F VOL: 0
 ;PCODE: $00000170 VOL: 0
 ;PCODE: $00000171 VOL: 0
 ;PCODE: $00000172 VOL: 0
 ;PCODE: $00000173 VOL: 0
 ;PCODE: $00000174 VOL: 0
+; 0000 006A                     delay_ms(10);
 ;PCODE: $00000175 VOL: 0
-; 0000 0070             else{ num2 = num2 * 10 + pressedKey - 48; }
 ;PCODE: $00000176 VOL: 0
 ;PCODE: $00000177 VOL: 0
+; 0000 006B                 }
 ;PCODE: $00000178 VOL: 0
 ;PCODE: $00000179 VOL: 0
 ;PCODE: $0000017A VOL: 0
@@ -519,88 +522,207 @@
 ;PCODE: $0000017C VOL: 0
 ;PCODE: $0000017D VOL: 0
 ;PCODE: $0000017E VOL: 0
+; 0000 006C                 eeprom_write_byte(0,9);
 ;PCODE: $0000017F VOL: 0
-; 0000 0071             lcd_putchar(pressedKey);
 ;PCODE: $00000180 VOL: 0
 ;PCODE: $00000181 VOL: 0
-; 0000 0072         }
+; 0000 006D                 historyCount -= 1;
 ;PCODE: $00000182 VOL: 0
 ;PCODE: $00000183 VOL: 0
 ;PCODE: $00000184 VOL: 0
+; 0000 006E             }
 ;PCODE: $00000185 VOL: 0
+; 0000 006F             state = 0;
 ;PCODE: $00000186 VOL: 0
 ;PCODE: $00000187 VOL: 0
-; 0000 0073         pressedKey = 0;
+; 0000 0070             lcd_putchar(pressedKey);
 ;PCODE: $00000188 VOL: 0
-; 0000 0074     }
-; 0000 0075 
-; 0000 0076     #asm ("sei")
 ;PCODE: $00000189 VOL: 0
+; 0000 0071             if(operand == '+') { result = num1 + num2; }
 ;PCODE: $0000018A VOL: 0
-	sei
 ;PCODE: $0000018B VOL: 0
-; 0000 0077 }
 ;PCODE: $0000018C VOL: 0
 ;PCODE: $0000018D VOL: 0
 ;PCODE: $0000018E VOL: 0
+;PCODE: $0000018F VOL: 0
+; 0000 0072             else if(operand == '-') { result = num1 - num2; }
+;PCODE: $00000190 VOL: 0
+;PCODE: $00000191 VOL: 0
+;PCODE: $00000192 VOL: 0
+;PCODE: $00000193 VOL: 0
+;PCODE: $00000194 VOL: 0
+;PCODE: $00000195 VOL: 0
+;PCODE: $00000196 VOL: 0
+;PCODE: $00000197 VOL: 0
+; 0000 0073             sprintf(Buf,"%d",result); lcd_puts(Buf);
+;PCODE: $00000198 VOL: 0
+;PCODE: $00000199 VOL: 0
+;PCODE: $0000019A VOL: 0
+;PCODE: $0000019B VOL: 0
+;PCODE: $0000019C VOL: 0
+;PCODE: $0000019D VOL: 0
+;PCODE: $0000019E VOL: 0
+;PCODE: $0000019F VOL: 0
+;PCODE: $000001A0 VOL: 0
+;PCODE: $000001A1 VOL: 0
+;PCODE: $000001A2 VOL: 0
+;PCODE: $000001A3 VOL: 0
+;PCODE: $000001A4 VOL: 0
+;PCODE: $000001A5 VOL: 0
+;PCODE: $000001A6 VOL: 0
+;PCODE: $000001A7 VOL: 0
+; 0000 0074 
+; 0000 0075             eeprom_write_byte(historyCount * 4 + 1, num1);
+;PCODE: $000001A8 VOL: 0
+;PCODE: $000001A9 VOL: 0
+;PCODE: $000001AA VOL: 0
+;PCODE: $000001AB VOL: 0
+;PCODE: $000001AC VOL: 0
+;PCODE: $000001AD VOL: 0
+; 0000 0076             eeprom_write_byte(historyCount * 4 + 2, operand);
+;PCODE: $000001AE VOL: 0
+;PCODE: $000001AF VOL: 0
+;PCODE: $000001B0 VOL: 0
+;PCODE: $000001B1 VOL: 0
+;PCODE: $000001B2 VOL: 0
+;PCODE: $000001B3 VOL: 0
+; 0000 0077             eeprom_write_byte(historyCount * 4 + 3, num2);
+;PCODE: $000001B4 VOL: 0
+;PCODE: $000001B5 VOL: 0
+;PCODE: $000001B6 VOL: 0
+;PCODE: $000001B7 VOL: 0
+;PCODE: $000001B8 VOL: 0
+;PCODE: $000001B9 VOL: 0
+; 0000 0078             eeprom_write_byte(historyCount * 4 + 4, result);
+;PCODE: $000001BA VOL: 0
+;PCODE: $000001BB VOL: 0
+;PCODE: $000001BC VOL: 0
+;PCODE: $000001BD VOL: 0
+;PCODE: $000001BE VOL: 0
+;PCODE: $000001BF VOL: 0
+; 0000 0079             eeprom_write_byte(0, (historyCount + 1));
+;PCODE: $000001C0 VOL: 0
+;PCODE: $000001C1 VOL: 0
+;PCODE: $000001C2 VOL: 0
+;PCODE: $000001C3 VOL: 0
+; 0000 007A 
+; 0000 007B         }
+;PCODE: $000001C4 VOL: 0
+; 0000 007C         else if(showHistoryState == 1){
+;PCODE: $000001C5 VOL: 0
+;PCODE: $000001C6 VOL: 0
+;PCODE: $000001C7 VOL: 0
+;PCODE: $000001C8 VOL: 0
+;PCODE: $000001C9 VOL: 0
+; 0000 007D             lcd_clear();
+;PCODE: $000001CA VOL: 0
+; 0000 007E             lcd_puts("* = next page");
+;PCODE: $000001CB VOL: 0
+;PCODE: $000001CC VOL: 0
+;PCODE: $000001CD VOL: 0
+; 0000 007F         }
+; 0000 0080         else{
+;PCODE: $000001CE VOL: 0
+;PCODE: $000001CF VOL: 0
+; 0000 0081             if(state == 0){ num1 = num1 * 10 + pressedKey - 48; }
+;PCODE: $000001D0 VOL: 0
+;PCODE: $000001D1 VOL: 0
+;PCODE: $000001D2 VOL: 0
+;PCODE: $000001D3 VOL: 0
+;PCODE: $000001D4 VOL: 0
+;PCODE: $000001D5 VOL: 0
+;PCODE: $000001D6 VOL: 0
+;PCODE: $000001D7 VOL: 0
+;PCODE: $000001D8 VOL: 0
+; 0000 0082             else{ num2 = num2 * 10 + pressedKey - 48; }
+;PCODE: $000001D9 VOL: 0
+;PCODE: $000001DA VOL: 0
+;PCODE: $000001DB VOL: 0
+;PCODE: $000001DC VOL: 0
+;PCODE: $000001DD VOL: 0
+;PCODE: $000001DE VOL: 0
+;PCODE: $000001DF VOL: 0
+;PCODE: $000001E0 VOL: 0
+;PCODE: $000001E1 VOL: 0
+;PCODE: $000001E2 VOL: 0
+; 0000 0083             lcd_putchar(pressedKey);
+;PCODE: $000001E3 VOL: 0
+;PCODE: $000001E4 VOL: 0
+; 0000 0084         }
+;PCODE: $000001E5 VOL: 0
+;PCODE: $000001E6 VOL: 0
+;PCODE: $000001E7 VOL: 0
+;PCODE: $000001E8 VOL: 0
+;PCODE: $000001E9 VOL: 0
+;PCODE: $000001EA VOL: 0
+; 0000 0085         pressedKey = 0;
+;PCODE: $000001EB VOL: 0
+; 0000 0086     }
+; 0000 0087 
+; 0000 0088     #asm ("sei")
+;PCODE: $000001EC VOL: 0
+;PCODE: $000001ED VOL: 0
+	sei
+;PCODE: $000001EE VOL: 0
+; 0000 0089 }
+;PCODE: $000001EF VOL: 0
+;PCODE: $000001F0 VOL: 0
+;PCODE: $000001F1 VOL: 0
 
 	.DSEG
 _0x11:
 	.BYTE 0x27
 ;
 ;void main(void)
-; 0000 007A {
+; 0000 008C {
 
 	.CSEG
-;PCODE: $0000018F VOL: 0
-; 0000 007B     eeprom_write_byte(0, 0);
-;PCODE: $00000190 VOL: 0
-;PCODE: $00000191 VOL: 0
-;PCODE: $00000192 VOL: 0
-; 0000 007C     lcd_init(16);
-;PCODE: $00000193 VOL: 0
-;PCODE: $00000194 VOL: 0
-; 0000 007D     lcd_clear();
-;PCODE: $00000195 VOL: 0
-; 0000 007E     lcd_puts("Start");
-;PCODE: $00000196 VOL: 0
-;PCODE: $00000197 VOL: 0
-;PCODE: $00000198 VOL: 0
-; 0000 007F     delay_ms(1000);
-;PCODE: $00000199 VOL: 0
-;PCODE: $0000019A VOL: 0
-; 0000 0080     lcd_clear();
-;PCODE: $0000019B VOL: 0
-; 0000 0081 
-; 0000 0082     #asm("sei")
-;PCODE: $0000019C VOL: 0
+;PCODE: $000001F2 VOL: 0
+; 0000 008D     //eeprom_write_byte(0, 0);
+; 0000 008E     lcd_init(16);
+;PCODE: $000001F3 VOL: 0
+;PCODE: $000001F4 VOL: 0
+; 0000 008F     lcd_clear();
+;PCODE: $000001F5 VOL: 0
+; 0000 0090     lcd_puts("Let's calculate!");
+;PCODE: $000001F6 VOL: 0
+;PCODE: $000001F7 VOL: 0
+;PCODE: $000001F8 VOL: 0
+; 0000 0091     delay_ms(1000);
+;PCODE: $000001F9 VOL: 0
+;PCODE: $000001FA VOL: 0
+; 0000 0092     lcd_clear();
+;PCODE: $000001FB VOL: 0
+; 0000 0093 
+; 0000 0094     #asm("sei")
+;PCODE: $000001FC VOL: 0
 	sei
-;PCODE: $0000019D VOL: 0
-; 0000 0083     GICR |= (1 << INT0);
-;PCODE: $0000019E VOL: 0
-;PCODE: $0000019F VOL: 0
-;PCODE: $000001A0 VOL: 0
-; 0000 0084     MCUCR |= (1 << ISC01) | (0 << ISC00);
-;PCODE: $000001A1 VOL: 0
-;PCODE: $000001A2 VOL: 0
-;PCODE: $000001A3 VOL: 0
-; 0000 0085     DDRB=0X0F;
-;PCODE: $000001A4 VOL: 0
-;PCODE: $000001A5 VOL: 0
-; 0000 0086     keypad_port=0XF0;
-;PCODE: $000001A6 VOL: 0
-;PCODE: $000001A7 VOL: 0
-; 0000 0087     while (1) {
-;PCODE: $000001A8 VOL: 0
-; 0000 0088 
-; 0000 0089     }
-;PCODE: $000001A9 VOL: 0
-;PCODE: $000001AA VOL: 0
-; 0000 008A }
-;PCODE: $000001AB VOL: 0
-;PCODE: $000001AC VOL: 0
-;PCODE: $000001AD VOL: 0
+;PCODE: $000001FD VOL: 0
+; 0000 0095     GICR |= (1 << INT0);
+;PCODE: $000001FE VOL: 0
+;PCODE: $000001FF VOL: 0
+;PCODE: $00000200 VOL: 0
+; 0000 0096     MCUCR |= (1 << ISC01) | (0 << ISC00);
+;PCODE: $00000201 VOL: 0
+;PCODE: $00000202 VOL: 0
+;PCODE: $00000203 VOL: 0
+; 0000 0097     DDRB=0X0F;
+;PCODE: $00000204 VOL: 0
+;PCODE: $00000205 VOL: 0
+; 0000 0098     keypad_port=0XF0;
+;PCODE: $00000206 VOL: 0
+;PCODE: $00000207 VOL: 0
+; 0000 0099     while (1) {
+;PCODE: $00000208 VOL: 0
+; 0000 009A 
+; 0000 009B     }
+;PCODE: $00000209 VOL: 0
+;PCODE: $0000020A VOL: 0
+; 0000 009C }
+;PCODE: $0000020B VOL: 0
+;PCODE: $0000020C VOL: 0
+;PCODE: $0000020D VOL: 0
 
 	.DSEG
-_0x24:
-	.BYTE 0x6
+_0x28:
+	.BYTE 0x11

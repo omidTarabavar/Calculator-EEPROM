@@ -53,10 +53,9 @@ interrupt [2] void my_int()
     keypad_port=0XF0;
     if(pressedKey != 0)
     {
-        if (pressedKey == 'C') {num1 = 0; num2 = 0; result = 0; lcd_clear(); showHistoryState = 0;}
+        if (pressedKey == 'C') {num1 = 0; num2 = 0; result = 0; lcd_clear(); showHistoryState = 0; num1 = 0; num2 = 0; state = 0;}
         else if(pressedKey == '/'){
             int historyCount = eeprom_read_byte(0);
-            //Åif(historyCount == 0){lcd_clear();lcd_puts("* = next page");}
             if (historyCount != 0){            
                 shown = 0;
                 showHistoryState = 1;
@@ -92,6 +91,23 @@ interrupt [2] void my_int()
         
         else if(pressedKey == '=' & showHistoryState == 0) {
             int historyCount = eeprom_read_byte(0);
+            if(historyCount == 10){
+                int j;
+                for(j = 0; j < 9; j++){
+                    int oh_num1 = eeprom_read_byte((j+1)*4+1);
+                    int oh_opr1 = eeprom_read_byte((j+1)*4+2);
+                    int oh_num2 = eeprom_read_byte((j+1)*4+3);
+                    int oh_res1 = eeprom_read_byte((j+1)*4+4);
+                    delay_ms(10);
+                    eeprom_write_byte(j*4+1,oh_num1);
+                    eeprom_write_byte(j*4+2,oh_opr1);
+                    eeprom_write_byte(j*4+3,oh_num2);
+                    eeprom_write_byte(j*4+4,oh_res1);
+                    delay_ms(10);
+                }
+                eeprom_write_byte(0,9);
+                historyCount -= 1;
+            }
             state = 0;
             lcd_putchar(pressedKey);
             if(operand == '+') { result = num1 + num2; }
@@ -103,6 +119,7 @@ interrupt [2] void my_int()
             eeprom_write_byte(historyCount * 4 + 3, num2);
             eeprom_write_byte(historyCount * 4 + 4, result);
             eeprom_write_byte(0, (historyCount + 1));
+            
         }
         else if(showHistoryState == 1){
             lcd_clear();
@@ -124,7 +141,7 @@ void main(void)
     eeprom_write_byte(0, 0);
     lcd_init(16);
     lcd_clear();
-    lcd_puts("Start");
+    lcd_puts("Let's calculate!");
     delay_ms(1000);
     lcd_clear();
     
