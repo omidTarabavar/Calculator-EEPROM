@@ -27,7 +27,7 @@ PageIndex0=0
 OF1=calculator.c
 Active1=1
 EditorPanel1=0
-TimeStamp1=1513833104
+TimeStamp1=1513978003
 PageIndex1=1
 [CompilerDebug]
 Chip=ATmega32
@@ -127,8 +127,8 @@ WatchAVR8LAutoVariables=0
 UseEEPROMLocation0=1
 RebuildAll=0
 LinkageInformationPresent=1
-COFFileTimeStamp=1513833106
-Build=61
+COFFileTimeStamp=1513978004
+Build=70
 [DefinedSymbolsDebug]
 Count=0
 [Compiler]
@@ -230,7 +230,7 @@ UseEEPROMLocation0=1
 RebuildAll=1
 LinkageInformationPresent=0
 COFFileTimeStamp=-1
-Build=61
+Build=70
 IncludePath0=
 IncludePath1=
 IncludePath2=
@@ -490,7 +490,7 @@ L13=Enhanced function parameters passing: Yes
 L14=Automatic register allocation: Yes
 L15=Smart register allocation: Yes
 L16=
-L17=Build: 60
+L17=Build: 69
 L18=10959 line(s) compiled
 L19=No errors
 L20=No warnings
@@ -532,16 +532,16 @@ Row=0
 Column=0
 ScrollPosX=0
 ScrollPosY=0
-TimeStamp=1513833128
+TimeStamp=1513979962
 [BookmarksFoldedCode]
 Files=1
 F1=calculator.c
 [Bookmarks1]
-TimeStamp=1513833104
+TimeStamp=1513978003
 Row=140
 Column=6
 ScrollPosX=0
-ScrollPosY=112
+ScrollPosY=116
 BK0=-1
 BK1=-1
 BK2=-1

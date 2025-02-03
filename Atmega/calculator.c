@@ -99,13 +99,13 @@ interrupt [2] void my_int()
                     int oh_num2 = eeprom_read_byte((j+1)*4+3);
                     int oh_res1 = eeprom_read_byte((j+1)*4+4);
                     delay_ms(10);
-                    eeprom_write_byte(j*4+1,oh_num1);
-                    eeprom_write_byte(j*4+2,oh_opr1);
-                    eeprom_write_byte(j*4+3,oh_num2);
-                    eeprom_write_byte(j*4+4,oh_res1);
+                    eeprom_update_byte(j*4+1,oh_num1);
+                    eeprom_update_byte(j*4+2,oh_opr1);
+                    eeprom_update_byte(j*4+3,oh_num2);
+                    eeprom_update_byte(j*4+4,oh_res1);
                     delay_ms(10);
                 }
-                eeprom_write_byte(0,9);
+                eeprom_update_byte(0,9);
                 historyCount -= 1;
             }
             state = 0;
@@ -114,11 +114,11 @@ interrupt [2] void my_int()
             else if(operand == '-') { result = num1 - num2; }
             sprintf(Buf,"%d",result); lcd_puts(Buf);
 
-            eeprom_write_byte(historyCount * 4 + 1, num1);
-            eeprom_write_byte(historyCount * 4 + 2, operand);
-            eeprom_write_byte(historyCount * 4 + 3, num2);
-            eeprom_write_byte(historyCount * 4 + 4, result);
-            eeprom_write_byte(0, (historyCount + 1));
+            eeprom_update_byte(historyCount * 4 + 1, num1);
+            eeprom_update_byte(historyCount * 4 + 2, operand);
+            eeprom_update_byte(historyCount * 4 + 3, num2);
+            eeprom_update_byte(historyCount * 4 + 4, result);
+            eeprom_update_byte(0, (historyCount + 1));
             
         }
         else if(showHistoryState == 1){

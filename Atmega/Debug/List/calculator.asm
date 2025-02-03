@@ -1668,23 +1668,23 @@ _0x1E:
 	LDI  R26,LOW(10)
 	LDI  R27,0
 	CALL _delay_ms
-; 0000 0066                     eeprom_write_byte(j*4+1,oh_num1);
+; 0000 0066                     eeprom_update_byte(j*4+1,oh_num1);
 	CALL SUBOPT_0xB
 	ADIW R30,1
 	MOVW R26,R30
 	LDD  R30,Y+6
 	CALL SUBOPT_0xC
-; 0000 0067                     eeprom_write_byte(j*4+2,oh_opr1);
+; 0000 0067                     eeprom_update_byte(j*4+2,oh_opr1);
 	ADIW R30,2
 	MOVW R26,R30
 	LDD  R30,Y+4
 	CALL SUBOPT_0xC
-; 0000 0068                     eeprom_write_byte(j*4+3,oh_num2);
+; 0000 0068                     eeprom_update_byte(j*4+3,oh_num2);
 	ADIW R30,3
 	MOVW R26,R30
 	LDD  R30,Y+2
 	CALL SUBOPT_0xC
-; 0000 0069                     eeprom_write_byte(j*4+4,oh_res1);
+; 0000 0069                     eeprom_update_byte(j*4+4,oh_res1);
 	ADIW R30,4
 	MOVW R26,R30
 	LD   R30,Y
@@ -1702,7 +1702,7 @@ _0x1E:
 	STD  Y+1,R31
 	RJMP _0x1E
 _0x1F:
-; 0000 006C                 eeprom_write_byte(0,9);
+; 0000 006C                 eeprom_update_byte(0,9);
 	LDI  R26,LOW(0)
 	LDI  R27,HIGH(0)
 	LDI  R30,LOW(9)
@@ -1747,28 +1747,28 @@ _0x22:
 	MOVW R30,R10
 	CALL SUBOPT_0x8
 ; 0000 0074 
-; 0000 0075             eeprom_write_byte(historyCount * 4 + 1, num1);
+; 0000 0075             eeprom_update_byte(historyCount * 4 + 1, num1);
 	CALL SUBOPT_0xD
 	ADIW R30,1
 	MOVW R26,R30
 	MOV  R30,R6
 	CALL SUBOPT_0xE
-; 0000 0076             eeprom_write_byte(historyCount * 4 + 2, operand);
+; 0000 0076             eeprom_update_byte(historyCount * 4 + 2, operand);
 	ADIW R30,2
 	MOVW R26,R30
 	MOV  R30,R4
 	CALL SUBOPT_0xE
-; 0000 0077             eeprom_write_byte(historyCount * 4 + 3, num2);
+; 0000 0077             eeprom_update_byte(historyCount * 4 + 3, num2);
 	ADIW R30,3
 	MOVW R26,R30
 	MOV  R30,R8
 	CALL SUBOPT_0xE
-; 0000 0078             eeprom_write_byte(historyCount * 4 + 4, result);
+; 0000 0078             eeprom_update_byte(historyCount * 4 + 4, result);
 	ADIW R30,4
 	MOVW R26,R30
 	MOV  R30,R10
 	CALL __EEPROMWRB
-; 0000 0079             eeprom_write_byte(0, (historyCount + 1));
+; 0000 0079             eeprom_update_byte(0, (historyCount + 1));
 	LD   R30,Y
 	SUBI R30,-LOW(1)
 	LDI  R26,LOW(0)

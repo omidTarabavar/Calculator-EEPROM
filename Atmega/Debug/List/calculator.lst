@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.1.30  D:\Github\Calculator-EEPROM\Atmega\Debug\List\calculator.asm Mon Jan 27 08:20:34 2025
+AVRASM ver. 2.1.30  D:\Github\Calculator-EEPROM\Atmega\Debug\List\calculator.asm Wed Jan 29 15:04:39 2025
 
 D:\Github\Calculator-EEPROM\Atmega\Debug\List\calculator.asm(1088): warning: Register r5 already defined by the .DEF directive
 D:\Github\Calculator-EEPROM\Atmega\Debug\List\calculator.asm(1089): warning: Register r4 already defined by the .DEF directive
@@ -1754,23 +1754,23 @@ D:\Github\Calculator-EEPROM\Atmega\Debug\List\calculator.asm(1097): warning: Reg
 0001dd e0aa      	LDI  R26,LOW(10)
 0001de e0b0      	LDI  R27,0
 0001df 940e 058c 	CALL _delay_ms
-                 ; 0000 0066                     eeprom_write_byte(j*4+1,oh_num1);
+                 ; 0000 0066                     eeprom_update_byte(j*4+1,oh_num1);
 0001e1 940e 0539 	CALL SUBOPT_0xB
 0001e3 9631      	ADIW R30,1
 0001e4 01df      	MOVW R26,R30
 0001e5 81ee      	LDD  R30,Y+6
 0001e6 940e 053e 	CALL SUBOPT_0xC
-                 ; 0000 0067                     eeprom_write_byte(j*4+2,oh_opr1);
+                 ; 0000 0067                     eeprom_update_byte(j*4+2,oh_opr1);
 0001e8 9632      	ADIW R30,2
 0001e9 01df      	MOVW R26,R30
 0001ea 81ec      	LDD  R30,Y+4
 0001eb 940e 053e 	CALL SUBOPT_0xC
-                 ; 0000 0068                     eeprom_write_byte(j*4+3,oh_num2);
+                 ; 0000 0068                     eeprom_update_byte(j*4+3,oh_num2);
 0001ed 9633      	ADIW R30,3
 0001ee 01df      	MOVW R26,R30
 0001ef 81ea      	LDD  R30,Y+2
 0001f0 940e 053e 	CALL SUBOPT_0xC
-                 ; 0000 0069                     eeprom_write_byte(j*4+4,oh_res1);
+                 ; 0000 0069                     eeprom_update_byte(j*4+4,oh_res1);
 0001f2 9634      	ADIW R30,4
 0001f3 01df      	MOVW R26,R30
 0001f4 81e8      	LD   R30,Y
@@ -1788,7 +1788,7 @@ D:\Github\Calculator-EEPROM\Atmega\Debug\List\calculator.asm(1097): warning: Reg
 000200 83f9      	STD  Y+1,R31
 000201 cfb9      	RJMP _0x1E
                  _0x1F:
-                 ; 0000 006C                 eeprom_write_byte(0,9);
+                 ; 0000 006C                 eeprom_update_byte(0,9);
 000202 e0a0      	LDI  R26,LOW(0)
 000203 e0b0      	LDI  R27,HIGH(0)
 000204 e0e9      	LDI  R30,LOW(9)
@@ -1833,28 +1833,28 @@ D:\Github\Calculator-EEPROM\Atmega\Debug\List\calculator.asm(1097): warning: Reg
 000223 01f5      	MOVW R30,R10
 000224 940e 051e 	CALL SUBOPT_0x8
                  ; 0000 0074 
-                 ; 0000 0075             eeprom_write_byte(historyCount * 4 + 1, num1);
+                 ; 0000 0075             eeprom_update_byte(historyCount * 4 + 1, num1);
 000226 940e 0541 	CALL SUBOPT_0xD
 000228 9631      	ADIW R30,1
 000229 01df      	MOVW R26,R30
 00022a 2de6      	MOV  R30,R6
 00022b 940e 0546 	CALL SUBOPT_0xE
-                 ; 0000 0076             eeprom_write_byte(historyCount * 4 + 2, operand);
+                 ; 0000 0076             eeprom_update_byte(historyCount * 4 + 2, operand);
 00022d 9632      	ADIW R30,2
 00022e 01df      	MOVW R26,R30
 00022f 2de4      	MOV  R30,R4
 000230 940e 0546 	CALL SUBOPT_0xE
-                 ; 0000 0077             eeprom_write_byte(historyCount * 4 + 3, num2);
+                 ; 0000 0077             eeprom_update_byte(historyCount * 4 + 3, num2);
 000232 9633      	ADIW R30,3
 000233 01df      	MOVW R26,R30
 000234 2de8      	MOV  R30,R8
 000235 940e 0546 	CALL SUBOPT_0xE
-                 ; 0000 0078             eeprom_write_byte(historyCount * 4 + 4, result);
+                 ; 0000 0078             eeprom_update_byte(historyCount * 4 + 4, result);
 000237 9634      	ADIW R30,4
 000238 01df      	MOVW R26,R30
 000239 2dea      	MOV  R30,R10
 00023a 940e 05e7 	CALL __EEPROMWRB
-                 ; 0000 0079             eeprom_write_byte(0, (historyCount + 1));
+                 ; 0000 0079             eeprom_update_byte(0, (historyCount + 1));
 00023c 81e8      	LD   R30,Y
 00023d 5fef      	SUBI R30,-LOW(1)
 00023e e0a0      	LDI  R26,LOW(0)
